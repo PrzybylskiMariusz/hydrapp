@@ -37,7 +37,7 @@ addButton.addEventListener('click', (e) => {
   e.preventDefault();
   number.innerHTML = parseInt(number.innerHTML) + 1;
   localStorage.setItem(key, number.innerHTML);
-  window.location.reload(true);
+ window.location.reload(true);
 });
 
 deleteButton.addEventListener('click', (e) => {
@@ -49,6 +49,7 @@ deleteButton.addEventListener('click', (e) => {
   window.location.reload(true);
 });
 
+const table = document.querySelector('.body--js');
 historyButton.addEventListener('click', (e) => {
   e.preventDefault();
   history.classList.add('history--visible');
@@ -59,7 +60,7 @@ closeIcon.addEventListener('click', (e) => {
   history.classList.remove('history--visible');
 });
 
-const table = document.querySelector('.body--js');
+
 if (table) {
   for (let i = 0; i < localStorage.length; i++) {
     let value = localStorage.getItem(localStorage.key(i));
