@@ -21,27 +21,33 @@ const addButton = document.querySelector('.buttons__add--js');
 const deleteButton = document.querySelector('.buttons__delete--js');
 const historyButton = document.querySelector('.buttons__history--js');
 const key = new Date().toISOString().slice(0, 10);
-let glass = 0;
 
-if(localStorage.getItem(key)) {
-  number.innerHTML = localStorage.getItem(key);
-} else {
-  localStorage.setItem(key, glass);
-  number.innerHTML = glass;
+if(number){
+  if(!localStorage.getItem(key)) {
+    localStorage.setItem(key, 0);
+    number.innerHTML = 0;
+  } else {
+    number.innerHTML = localStorage.getItem(key);
+  }
 }
 
 addButton.addEventListener('click', (e) => {
   e.preventDefault();
-  glass++;
-  localStorage.setItem(key, glass);
-  number.innerHTML = glass;
+  number.innerHTML = parseInt(number.innerHTML) + 1;
+  localStorage.setItem(key, number.innerHTML);
+
 });
 
 deleteButton.addEventListener('click', (e) => {
   e.preventDefault();
-  if(glass>0){
-    glass--;
-    localStorage.setItem(key, glass);
-    number.innerHTML = glass;
+  if(number.innerHTML>0){
+    number.innerHTML = parseInt(number.innerHTML) - 1;
+    localStorage.setItem(key, number.innerHTML);
   }
 });
+
+let nextValue;
+for (let i = 0; i < localStorage.length; i++){
+    nextValue = localStorage.getItem(localStorage.key(i));
+    console.log(`${localStorage.key(i)} ${nextValue}`);
+}
