@@ -37,7 +37,7 @@ addButton.addEventListener('click', (e) => {
   e.preventDefault();
   number.innerHTML = parseInt(number.innerHTML) + 1;
   localStorage.setItem(key, number.innerHTML);
- window.location.reload(true);
+  window.location.reload(true);
 });
 
 deleteButton.addEventListener('click', (e) => {
