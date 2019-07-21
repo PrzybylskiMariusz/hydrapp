@@ -26,6 +26,7 @@ let glass = 0;
 if(localStorage.getItem(key)) {
   number.innerHTML = localStorage.getItem(key);
 } else {
+  localStorage.setItem(key, glass);
   number.innerHTML = glass;
 }
 
