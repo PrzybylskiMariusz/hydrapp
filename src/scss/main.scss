@@ -107,14 +107,10 @@ body {
   color: $black;
   height: 50vh;
   position: absolute;
-  //bottom: -50vh;
-  //display: none;
-  //opacity: 0;
-  bottom: 0;
-  display: block;
-  opacity: 1;
+  bottom: -50vh;
+  display: none;
+  opacity: 0;
   margin: 0;
-  overflow: scroll;
   transition: bottom 1s ease-in-out, display 1s ease-in-out, opacity 1s ease-in-out;
   width: 100%;
   z-index: 9999;
@@ -156,8 +152,9 @@ body {
 .body {
   font-size: 14px;
   font-weight: 400;
-  &__row {
-    padding: 16px 0;
+  overflow: scroll;
+  &__data {
+    padding: 16px;
     border-bottom: 1px solid #F3F3F3;
   }
 }

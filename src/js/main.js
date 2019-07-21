@@ -20,6 +20,8 @@ const number = document.querySelector('.counter__number--js');
 const addButton = document.querySelector('.buttons__add--js');
 const deleteButton = document.querySelector('.buttons__delete--js');
 const historyButton = document.querySelector('.buttons__history--js');
+const history = document.querySelector('.history--js');
+const closeIcon = document.querySelector('.history__icon');
 const key = new Date().toISOString().slice(0, 10);
 
 if(number){
@@ -35,7 +37,7 @@ addButton.addEventListener('click', (e) => {
   e.preventDefault();
   number.innerHTML = parseInt(number.innerHTML) + 1;
   localStorage.setItem(key, number.innerHTML);
-
+  window.location.reload(true);
 });
 
 deleteButton.addEventListener('click', (e) => {
@@ -44,10 +46,27 @@ deleteButton.addEventListener('click', (e) => {
     number.innerHTML = parseInt(number.innerHTML) - 1;
     localStorage.setItem(key, number.innerHTML);
   }
+  window.location.reload(true);
 });
 
-let nextValue;
-for (let i = 0; i < localStorage.length; i++){
-    nextValue = localStorage.getItem(localStorage.key(i));
-    console.log(`${localStorage.key(i)} ${nextValue}`);
+historyButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  history.classList.add('history--visible');
+});
+
+closeIcon.addEventListener('click', (e) => {
+  e.preventDefault();
+  history.classList.remove('history--visible');
+});
+
+const table = document.querySelector('.body--js');
+if (table) {
+  for (let i = 0; i < localStorage.length; i++) {
+    let value = localStorage.getItem(localStorage.key(i));
+    table.innerHTML += `<tr class="body__row">
+                          <td class="body__data">${localStorage.key(i)}</td>
+                          <td class="body__data">${value}</td>
+                        </tr>`;
+  }
+
 }
