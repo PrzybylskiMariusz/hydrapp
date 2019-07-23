@@ -42,9 +42,6 @@ function checkTableData(data) {
   }
 }
 
-
-
-
 if(number){
   if(!localStorage.getItem(key)) {
     localStorage.setItem(key, 0);
@@ -58,8 +55,6 @@ addButton.addEventListener('click', (e) => {
   e.preventDefault();
   number.innerHTML = parseInt(number.innerHTML) + 1;
   localStorage.setItem(key, number.innerHTML);
-  //window.location.reload(true);
-  localStorage.getItem(key);
 });
 
 deleteButton.addEventListener('click', (e) => {
@@ -68,7 +63,6 @@ deleteButton.addEventListener('click', (e) => {
     number.innerHTML = parseInt(number.innerHTML) - 1;
     localStorage.setItem(key, number.innerHTML);
   }
-  window.location.reload(true);
 });
 
 const table = document.querySelector('.body--js');
