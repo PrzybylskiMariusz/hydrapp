@@ -22,7 +22,28 @@ const deleteButton = document.querySelector('.buttons__delete--js');
 const historyButton = document.querySelector('.buttons__history--js');
 const history = document.querySelector('.history--js');
 const closeIcon = document.querySelector('.history__icon');
-const key = new Date().toISOString().slice(0, 10);
+const key = currentDate();
+
+function currentDate() {
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const yyyy = today.getFullYear();
+  const current = `${dd}/${mm}/${yyyy}`;
+  return current;
+}
+
+checkTableData('assa')
+
+function checkTableData(data) {
+  const regex = new RegExp('\\d{2}/\\d{2}/\\d{4}')
+  if (data.match(regex)) {
+    return true
+  }
+}
+
+
+
 
 if(number){
   if(!localStorage.getItem(key)) {
@@ -37,7 +58,8 @@ addButton.addEventListener('click', (e) => {
   e.preventDefault();
   number.innerHTML = parseInt(number.innerHTML) + 1;
   localStorage.setItem(key, number.innerHTML);
-  window.location.reload(true);
+  //window.location.reload(true);
+  localStorage.getItem(key);
 });
 
 deleteButton.addEventListener('click', (e) => {
@@ -53,6 +75,17 @@ const table = document.querySelector('.body--js');
 historyButton.addEventListener('click', (e) => {
   e.preventDefault();
   history.classList.add('history--visible');
+  if (table) {
+    for (let i = 0; i < localStorage.length; i++) {
+      let value = localStorage.getItem(localStorage.key(i));
+      if (checkTableData(key)){
+        table.innerHTML = `<tr class="body__row">
+                              <td class="body__data">${localStorage.key(i)}</td>
+                              <td class="body__data">${value}</td>
+                            </tr>`;
+      }
+    }
+  }
 });
 
 closeIcon.addEventListener('click', (e) => {
@@ -64,10 +97,11 @@ closeIcon.addEventListener('click', (e) => {
 if (table) {
   for (let i = 0; i < localStorage.length; i++) {
     let value = localStorage.getItem(localStorage.key(i));
-    table.innerHTML += `<tr class="body__row">
-                          <td class="body__data">${localStorage.key(i)}</td>
-                          <td class="body__data">${value}</td>
-                        </tr>`;
+    if (checkTableData(key)){
+      table.innerHTML += `<tr class="body__row">
+                            <td class="body__data">${localStorage.key(i)}</td>
+                            <td class="body__data">${value}</td>
+                          </tr>`;
+    }
   }
-
 }
