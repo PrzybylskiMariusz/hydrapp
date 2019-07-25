@@ -52,34 +52,25 @@ if(number){
 }
 
 addButton.addEventListener('click', (e) => {
-  e.preventDefault();
+  //e.preventDefault();
   number.innerHTML = parseInt(number.innerHTML) + 1;
   localStorage.setItem(key, number.innerHTML);
+  location.reload(true);
 });
 
 deleteButton.addEventListener('click', (e) => {
-  e.preventDefault();
+  //e.preventDefault();
   if(number.innerHTML>0){
     number.innerHTML = parseInt(number.innerHTML) - 1;
     localStorage.setItem(key, number.innerHTML);
   }
+  location.reload(true);
 });
 
 const table = document.querySelector('.body--js');
 historyButton.addEventListener('click', (e) => {
   e.preventDefault();
   history.classList.add('history--visible');
-  if (table) {
-    for (let i = 0; i < localStorage.length; i++) {
-      let value = localStorage.getItem(localStorage.key(i));
-      if (checkTableData(key)){
-        table.innerHTML = `<tr class="body__row">
-                              <td class="body__data">${localStorage.key(i)}</td>
-                              <td class="body__data">${value}</td>
-                            </tr>`;
-      }
-    }
-  }
 });
 
 closeIcon.addEventListener('click', (e) => {
