@@ -1,7 +1,7 @@
 ![Page screenshot](src/assets/img/cover.png)
 
 # hydrapp
-Hydrapp to apliklacja "PWA" stworzona i opublikowana przy użyciu taskrunner GULP. Dzięki jego użyciu możliwe było wykorzystanie nowych technologii, jakich? Czytaj dalej lub [odpal stronę](https://przybylskimariusz.github.io/hydrapp/).
+Hydrapp to aplikacja "PWA" stworzona i opublikowana przy użyciu taskrunner GULP. Dzięki jego użyciu możliwe było wykorzystanie nowych technologii, jakich? Czytaj dalej lub [odpal stronę](https://przybylskimariusz.github.io/hydrapp/).
 
 ## Użyte narzędzia i technologie
 To pierwsza aplikacja "PWA", którą zbudowałem. Jest prosta, intuicyjna i służy do mierzenia ilości wypitych w trakcie dnia szklanek wody. Jestem przekonany, że będę ją rozwijał, tak aby stała się w pełni funkcjonalną aplikacją :)
