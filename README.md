@@ -13,7 +13,7 @@ To pierwsza aplikacja "PWA", którą zbudowałem. Jest prosta, intuicyjna i słu
 |   BEM	| Sass 	|  Obiekt Date() 	|
 |  openGraph 	|  Zagnieżdżone style 	|  Event Listener 	|
 |   	|  Media queries 	|   manifest.json	|
-|   	|  Zmienne w Sass 	|   	|
+|   	|  Zmienne w Sass 	|  localstorage 	|
 
 
 ## Uruchomienie strony lokalnie
